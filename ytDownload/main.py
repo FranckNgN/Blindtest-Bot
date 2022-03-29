@@ -62,7 +62,12 @@ if __name__ == "__main__":
         Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_EZedbCZQbuDv0FBsyqrUuX'), #Hunter x Hunter
         Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_GzndQGF4cnGXpFaCCNpUjP'), #Samurai Shamploo
         Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_Fs4qb2S0lKxthJXe_B4wpc'), #Dr Stone
-        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_GStDkZBxCd8r6NDGuJEUnt'), #Dr Stone
+        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_GStDkZBxCd8r6NDGuJEUnt'), #Jujutsu Kaisen
+        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_F9BI3uAeHs3AkILIX9foh8'), #Yu Yu Hakusho
+        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_F9BI3uAeHs3AkILIX9foh8'), #Yu Yu Hakusho
+        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_EdD5I7yIcf8xgdmbzWrpO0'), #Shokugeki no Soma
+        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_GBxlJM71jUqMElaOMG7Ur-'), #Hunter x Hunter
+        Playlist('https://www.youtube.com/playlist?list=PLsAXDMQVId_ETmvU7CmuuLE_cSzqMZkSG'), #Hajime no Ippo
         ] 
 
     for playList in playlistList:
