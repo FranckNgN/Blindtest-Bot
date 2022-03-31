@@ -3,8 +3,6 @@ import googleapiclient.discovery
 import pandas as pd
 import os
 
-channel_id = "UC8-FX4KsHFaNy0DQH7BXrdg" # Channel ID set to SenTh
-
 def getYtPlaylistInfoDf(channelId: str) -> pd.DataFrame:
     cwdPath = os.getcwd() + '\\'
     dataConfig = pd.read_csv(cwdPath + 'dataConfig.csv') #retrieve youtube API key from excel
