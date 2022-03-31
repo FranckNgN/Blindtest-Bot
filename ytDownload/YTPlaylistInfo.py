@@ -30,5 +30,3 @@ def getYtPlaylistInfoDf(channelId: str) -> pd.DataFrame:
     playlistsInfoDf = pd.concat([playlistsInfoDf, snippetColumnZip], axis = 1) 
 
     return playlistsInfoDf
-
-getYtPlaylistInfo(channel_id)
