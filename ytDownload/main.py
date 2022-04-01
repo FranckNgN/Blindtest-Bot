@@ -15,8 +15,6 @@ dlSongName = 'alreadyDLSong.csv'
 
 c = Channel(channelUrl)
 
-
-
 def createPlaylistDic(playlistsInfoDic:dict, doOldMethod = True):
     playlistDic = {}
 
