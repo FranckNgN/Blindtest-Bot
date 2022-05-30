@@ -10,11 +10,30 @@ reload(ytPlayInf)
 
 if True: #Do parameters
     doDL = True
-    doDLTypeAnime = True
+    doDLTypeAnime = False
     doOldMethod = False
 
-#def dlYoutubeVideo(playlistDic:dict):
-    
+def dlYoutubeVideo(paramDic:dict, playlistDic:dict, videoDLDic: dict, doDL = True) -> None:
+    for playlistName, playlist in playlistDic.items():#Loop through the different youtube playlist
+        print("Downloading :", playlistName)
+        outputPathAnime = paramDic['output_path'] + playlistName
+
+        if not os.path.exists(outputPathAnime): #If the anime folder does not exist => create one, else pass
+            os.mkdir(outputPathAnime)
+
+        for video in playlist.videos:#for each video in the playlist
+            videoName = video.title
+            videoUrl = video.watch_url
+            videoViews = video.views
+
+            videoDLDic['videoTitle'].append(videoName)
+            videoDLDic['videoURL'].append(videoUrl)
+            videoDLDic['videoView'].append(videoViews)
+
+            st = video.streams.get_highest_resolution()
+            
+            if doDL:
+                st.download(output_path = outputPathAnime) 
 
 if __name__ == "__main__":
     if True: #Channel setting
@@ -45,26 +64,7 @@ if __name__ == "__main__":
         videoDLDic['videoView'] = []
 
     #---------------------------------------- Download video for each playlist and each video ---------------------------------------------------------------
-    for playlistName, playlist in playlistDic.items():#Loop through the different youtube playlist
-        print("Downloading :", playlistName)
-        outputPathAnime = paramDic['output_path'] + playlistName
-
-        if not os.path.exists(outputPathAnime): #If the anime folder does not exist => create one, else pass
-            os.mkdir(outputPathAnime)
-
-        for video in playlist.videos:#for each video in the playlist
-            videoName = video.title
-            videoUrl = video.watch_url
-            videoViews = video.views
-
-            videoDLDic['videoTitle'].append(videoName)
-            videoDLDic['videoURL'].append(videoUrl)
-            videoDLDic['videoView'].append(videoViews)
-
-            st = video.streams.get_highest_resolution()
-            
-            if doDL:
-                st.download(output_path = outputPathAnime)
+    dlYoutubeVideo(paramDic, playlistDic, videoDLDic, doDL)# DL song and updates videoDLDic
 
     #Create a dictionnary and store DL songs into an Excel
     pd.DataFrame(videoDLDic).to_csv(cwdPath + dlSongName, index = False)
