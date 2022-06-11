@@ -1,17 +1,11 @@
-#from pytube import Playlist
 from pytube import Channel
 from ytDownload import YTPlaylistInfo as ytPlayInf
 import pandas as pd
 import os
 from importlib import reload
-#retrieve playlist and song from a youtube channel
+
 
 reload(ytPlayInf)
-
-if True: #Do parameters
-    doDL = True
-    doDLTypeAnime = False
-    doOldMethod = False
 
 def dlYoutubeVideo(paramDic:dict, playlistDic:dict, videoDLDic: dict, doDL = True) -> None:
     for playlistName, playlist in playlistDic.items():#Loop through the different youtube playlist
@@ -36,6 +30,11 @@ def dlYoutubeVideo(paramDic:dict, playlistDic:dict, videoDLDic: dict, doDL = Tru
                 st.download(output_path = outputPathAnime) 
 
 if __name__ == "__main__":
+    if True: #Do parameters
+        doDL = True
+        doDLTypeAnime = False
+        doOldMethod = False
+
     if True: #Channel setting
         if doDLTypeAnime: #DL ANIME SONG
             channelId = "UC8-FX4KsHFaNy0DQH7BXrdg" # Channel ID set to SenTh
