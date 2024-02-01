@@ -1,5 +1,5 @@
 import openai
-openai.api_key = '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'
+openai.api_key = None
 
 def generate_response(prompt):
     # Use the OpenAI API to generate a response
