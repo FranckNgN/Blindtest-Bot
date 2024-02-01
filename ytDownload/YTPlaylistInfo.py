@@ -111,3 +111,30 @@ def createPlaylistDic(playlistsInfoDic:dict, doOldMethod = True):
             playlistDic[anime] = Playlist(playlistDic[anime])
 
     return playlistDic
+
+# # TEST
+# cwdPath = os.getcwd() + '\\'
+# dataConfig = pd.read_csv(cwdPath + 'dataConfig.csv') #retrieve youtube API key from excel
+
+# channelIdOld = "UC8-FX4KsHFaNy0DQH7BXrdg" 
+# channelIdNew = "UCFnYVA7HrwUojzxRXkhMo9w" 
+
+# ytKey = dataConfig.loc[dataConfig['Channel ID'] == channelIdOld]['youtubeAPI'][0]
+
+# youtube = googleapiclient.discovery.build("youtube", "v3", developerKey = ytKey)
+# request = youtube.playlists().list(
+#         part = "snippet",
+#         channelId = channelIdOld,
+#         maxResults = 50)
+
+# playlists = []
+# while request is not None:
+#     response = request.execute()
+#     playlists += response["items"]
+#     request = youtube.playlists().list_next(request, response)
+
+# playlistsInfoDf = pd.DataFrame(playlists)
+# playlistsInfoDf = playlistsInfoDf.loc[playlistsInfoDf.etag != 'o8vtZVZLSSHZcpfGC3qJ8MGSJ9g'] # delete non anime playlist, #TODO to check why deleted playlist is still showing in the api
+# snippetColumnZip = playlistsInfoDf['snippet'].apply(pd.Series) #Split snippet column
+
+# playlistsInfoDf = pd.concat([playlistsInfoDf, snippetColumnZip], axis = 1) 

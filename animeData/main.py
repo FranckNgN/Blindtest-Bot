@@ -2,7 +2,7 @@ from mal import *
 import pandas as pd
 from jikanpy import Jikan
 
-i = 3999
+i = 23999
 res = {}
 res['id'] = []
 res['url'] = []
@@ -22,7 +22,7 @@ res['status'] = []
 
 jikan = Jikan()
 
-while i < 8000:
+while i < 28000:
     try:
         x = jikan.anime(i)
         res['id'].append(x['mal_id'])
@@ -47,4 +47,4 @@ while i < 8000:
         i += 1
         print(e)
 
-pd.DataFrame(res).to_excel('8000.xlsx')
+pd.DataFrame(res).to_excel('28000.xlsx')
